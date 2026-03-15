@@ -26,6 +26,22 @@ function ejecutarEjercicio(){
         case "26":
             encontrarSubarrayMaximo();
         break;
+        
+        case "27":
+            combinarVectores();
+        break;
+        
+        case "28":
+            encontrarPrimos();
+        break;
+        
+        case "29":
+            multiplicarMatrices();
+        break;
+        
+        case "30":
+            ordenarPorMezcla();
+        break;                
 
         default:
             document.getElementById("resultado").innerHTML =
