@@ -69,9 +69,47 @@ function ejecutarEjercicio(){
 
         case "15":
             countEvenNumbers();
-        break;    
+        break;
         
+        case "16":
+            calculateAverage();
+        break;
         
+        case "17":
+            removeDuplicates(array);
+        break;
+        
+        case "18":
+            bubbleSort(array);
+        break;
+        
+        case "19":
+            multiply(a, b);
+        break;
+        
+        case "20":
+            countVowels(letters);
+        break;
+        
+        case "21":
+            transposeMatrix(matrix);
+        break;
+        
+        case "22":
+            dotProduct(vectorA, vectorB);
+        break;
+        
+        case "23":
+            procesarConvolucion();
+        break;
+
+        case "24":
+            ejecutarBusquedaBinaria();
+        break;
+
+        case "25":
+            rotarVector();       
+        break;
 
         case "26":
             encontrarSubarrayMaximo();
