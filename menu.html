@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios JavaScript</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios JavaScript</title>
+<style>
     body { font-family: Arial; padding: 20px; max-width: 700px; margin:auto; }
     h1 { text-align: center; }
     select, button, input { padding:5px 10px; margin:5px 0; font-size:16px; }
     #resultado { margin-top:20px; padding:10px; border:1px solid #ccc; min-height:50px; white-space: pre-wrap; }
-    input { display:none; }
-    </style>
+    .input-dinamico { display: none; margin-right:5px; }
+    #inputsContainer { margin:10px 0; }
+</style>
 </head>
 <body>
 
-    <h1>Ejercicios JavaScript</h1>
+<h1>Ejercicios JavaScript</h1>
 
-    <label for="selectEjercicio">Selecciona un ejercicio:</label>
-    <select id="selectEjercicio">
-        <option value="">--Selecciona un ejercicio--</option>
-        <option value="1">Mostrar números del 1 al 10 con for-1</option>
-        <option value="2">Sumar números del 1 al 100 con while-2</option>
-        <option value="3">Mostrar números pares con for-3</option>
-        <option value="4">Tabla de multiplicar con do-while-4</option>
-        <option value="5">Calcular factorial con for-5</option>
-        <option value="6">Contador regresivo con while-6</option>
-        <option value="7">Suma de números pares en rango con for-7</option>
-        <option value="8">Números impares con do-while-8</option>
-        <option value="9">Potencia con ciclos for-9</option>
-        <option value="10">Secuencia Fibonacci con while-10</option>
-        <option value="11">Suma de elementos de vector con for-11</option>
-        <option value="12">Encontrar máximo en vector con for-12</option>
-        <option value="13">Buscar elemento en vector con while-13</option>
-        <option value="14">Invertir vector con for-14</option>
-        <option value="15">Contar elementos pares en vector con for-15</option>
-        <option value="16">Promedio de elementos de vector con for-16</option>
-        <option value="17">Eliminar duplicados de vector con for-17</option>
-        <option value="18">Ordenar vector (burbuja) con for-18</option>
-        <option value="19">Producto de elementos con while-19</option>
-        <option value="20">Contar vocales en vector de letras con for-20</option>
-        <option value="21">Matriz transpuesta con for anidados-21</option>
-        <option value="22">Producto punto de vectores con for-22</option>
-        <option value="23">Convolución de vectores con for anidados-23</option>
-        <option value="24">Búsqueda binaria en vector ordenado con while-24</option>
-        <option value="25">Rotar vector k posiciones con for-25</option>
-        <option value="26">Ejercicio 26 - Subarray máximo</option>
-        <option value="27">Ejercicio 27 - Combinar vectores</option>
-        <option value="28">Ejercicio 28 - Primos</option>
-        <option value="29">Ejercicio 29 - Multiplicar matrices</option>
-        <option value="30">Ejercicio 30 - Ordenamiento por mezcla</option>
-    </select>
+<label for="selectEjercicio">Selecciona un ejercicio:</label>
+<select id="selectEjercicio">
+    <option value="">--Selecciona un ejercicio--</option>
+    
+    <option value="1">1 - Mostrar números del 1 al 10</option>
+    <option value="2">2 - Sumar números del 1 al 100</option>
+    <option value="3">3 - Mostrar números pares</option>
+    <option value="4">4 - Tabla de multiplicar</option>
+    <option value="5">5 - Calcular factorial</option>
+    <option value="6">6 - Contador regresivo</option>
+    <option value="7">7 - Suma de números pares en rango</option>
+    <option value="8">8 - Números impares</option>
+    <option value="9">9 - Potencia con ciclos</option>
+    <option value="10">10 - Secuencia Fibonacci</option>
+    <option value="11">11 - Suma de elementos de vector</option>
+    <option value="12">12 - Encontrar máximo en vector</option>
+    <option value="13">13 - Buscar elemento en vector</option>
+    <option value="14">14 - Invertir vector</option>
+    <option value="15">15 - Contar elementos pares en vector</option>
+    <option value="16">16 - Promedio de elementos de vector</option>
+    <option value="17">17 - Eliminar duplicados de vector</option>
+    <option value="18">18 - Ordenar vector (burbuja)</option>
+    <option value="19">19 - Producto de elementos</option>
+    <option value="20">20 - Contar vocales en vector de letras</option>
+    <option value="21">21 - Matriz transpuesta</option>
+    <option value="22">22 - Producto punto de vectores</option>
+    <option value="23">23 - Convolución de vectores</option>
+    <option value="24">24 - Búsqueda binaria</option>
+    <option value="25">25 - Rotar vector k posiciones</option>
+    <option value="26">26 - Subarray máximo</option>
+    <option value="27">27 - Combinar vectores</option>
+    <option value="28">28 - Primos</option>
+    <option value="29">29 - Multiplicación de matrices</option>
+    <option value="30">30 - Ordenamiento por mezcla</option>
+</select>
 
 <div id="inputsContainer">
-        <input id="subarrayInput" class="input-dinamico" placeholder="Ej: 1,2,3,-2,5">
-        <input id="array1Input" class="input-dinamico" placeholder="Vector 1">
-        <input id="array2Input" class="input-dinamico" placeholder="Vector 2">
-    </div>
+    <input id="subarrayInput" class="input-dinamico" placeholder="Ej: 1,2,3,-2,5">
+    <input id="array1Input" class="input-dinamico" placeholder="Vector 1: 1,3,5">
+    <input id="array2Input" class="input-dinamico" placeholder="Vector 2: 2,4,6">
+</div>
 
-    
-    <button id="botonEjecutar">Ejecutar</button>
+<button id="botonEjecutar">Ejecutar</button>
 
-    <div id="resultado"></div>
+<div id="resultado"></div>
 
-
-    <script type="module" src="menu.js"></script>
+<script type="module" src="menu.js"></script>
 
 </body>
 </html>
