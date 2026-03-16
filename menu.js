@@ -20,6 +20,12 @@ import { calcularProductoPunto } from "./integrantes/martinez/ejercicio22.js";
 import { procesarConvolucion } from "./integrantes/martinez/ejercicio23.js";
 import { ejecutarBusquedaBinaria } from "./integrantes/martinez/ejercicio24.js";
 import { rotarVector } from "./integrantes/martinez/ejercicio25.js";
+//Sebastian
+import { calcularFactorial } from "./integrantes/sebastian/ejercicio5.js";
+import { procesarNumero } from "./integrantes/sebastian/ejercicio6.js";
+import { cargarSuma } from "./integrantes/sebastian/ejercicio7.js";
+import { procesarLimite } from "./integrantes/sebastian/ejercicio8.js";
+
 
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
