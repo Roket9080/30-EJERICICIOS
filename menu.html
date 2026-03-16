@@ -9,7 +9,7 @@
     h1 { text-align: center; }
     select, button, input { padding:5px 10px; margin:5px 0; font-size:16px; }
     #resultado { margin-top:20px; padding:10px; border:1px solid #ccc; min-height:50px; white-space: pre-wrap; }
-    .input-dinamico { display: none; margin-right:5px; }
+    .input-dinamico { display: auto; margin-right:5px; }
     #inputsContainer { margin:10px 0; }
 </style>
 </head>
@@ -59,11 +59,13 @@
     <input id="array2Input" class="input-dinamico" placeholder="Vector 2: 2,4,6">
 </div>
 
+<script type="module" src="menu.js"></script>
+
 <button id="botonEjecutar">Ejecutar</button>
 
 <div id="resultado"></div>
 
-<script type="module" src="menu.js"></script>
+
 
 </body>
 </html>
