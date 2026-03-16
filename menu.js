@@ -1,4 +1,15 @@
-import { encontrarSubarrayMaximo } from "./integrantes/miguel/ej26.js";
+//Miguel
+import { encontrarSubarrayMaximo } from "./integrantes/miguel/ejercicio26.js";
+import { combinarVectores } from "./integrantes/miguel/ejercicio27.js";
+import { encontrarPrimos } from "./integrantes/miguel/ejercicio28.js";
+import { multiplicarMatrices } from "./integrantes/miguel/ejercicio29.js";
+import { ordenarPorMezcla } from "./integrantes/miguel/ejercicio30.js";
+//Cristian
+import { procesarBusqueda } from "./integrantes/cristian/ejercicio13.js"
+import { reverseArray } from "./integrantes/cristian/ejercicio14.js"
+import { countEvenNumbers } from "./integrantes/cristian/ejercicio15.js"
+import { calculateAverage } from "./integrantes/cristian/ejercicio16.js"
+//Liseth
 
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
