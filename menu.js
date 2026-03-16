@@ -161,10 +161,19 @@ function ejecutarEjercicio(){
         break;
 
         case "26":
+            
+            if (!subarrayInput.value) {
+                resultado.innerHTML = "Ingresa los números separados por comas.";
+                return;
+            }
             encontrarSubarrayMaximo();
-        break;
-        
+            break;
+
         case "27":
+            if (!array1Input.value || !array2Input.value) {
+                resultado.innerHTML = "Ingresa ambos vectores.";
+                return;
+            }
             combinarVectores();
         break;
         
