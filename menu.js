@@ -181,7 +181,7 @@ function ejecutarEjercicio(){
             return;
             }
             combinarVectores();
-        break;
+            break;
         
         case "28":
             encontrarPrimos();
