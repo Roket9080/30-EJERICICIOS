@@ -1,13 +1,11 @@
 export function encontrarSubarrayMaximo() {
-
     const input = document.getElementById("subarrayInput");
-    let contenedor = document.getElementById("resultadoSubarray");
+    const resultado = document.getElementById("resultado");
 
     
-    if (!contenedor) {
-        contenedor = document.createElement("div");
-        contenedor.id = "resultadoSubarray";
-        document.getElementById("resultado").appendChild(contenedor);
+    if (!input.value) {
+        resultado.innerHTML = "Ingresa los números separados por comas.";
+        return;
     }
 
     
@@ -15,7 +13,7 @@ export function encontrarSubarrayMaximo() {
 
     
     if (arr.some(isNaN)) {
-        contenedor.innerHTML = "Error: ingresa solo números separados por comas.";
+        resultado.innerHTML = "Error: ingresa solo números separados por comas.";
         return;
     }
 
@@ -42,7 +40,7 @@ export function encontrarSubarrayMaximo() {
     const subarrayMax = arr.slice(inicio, fin + 1);
 
     
-    contenedor.innerHTML = `
+    resultado.innerHTML = `
         <p>Subvector máximo: [${subarrayMax.join(", ")}]</p>
         <p>Suma máxima: ${maxGlobal}</p>
     `;
