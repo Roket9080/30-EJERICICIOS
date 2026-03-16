@@ -5,42 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicios JavaScript</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            max-width: 700px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-        }
-        select, button, input {
-            padding: 5px 10px;
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        #inputsContainer {
-            margin: 10px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        #resultado {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            min-height: 50px;
-            white-space: pre-wrap;
-        }
-        .input-dinamico {
-            flex: 1 1 150px;
-        }
-
-        #subrraInput,
-        #array1Input,
-        #array2Input{
-            display: none;
-        }
+    body { font-family: Arial; padding: 20px; max-width: 700px; margin:auto; }
+    h1 { text-align: center; }
+    select, button, input { padding:5px 10px; margin:5px 0; font-size:16px; }
+    #resultado { margin-top:20px; padding:10px; border:1px solid #ccc; min-height:50px; white-space: pre-wrap; }
+    input { display:none; }
     </style>
 </head>
 <body>
@@ -81,7 +50,7 @@
         <option value="29">Multiplicación de matrices con for anidados-29</option>
         <option value="30">Ordenamiento por mezcla con funciones recursivas-30</option>
     </select>
-    
+
 <div id="inputsContainer">
         <input id="subarrayInput" class="input-dinamico" placeholder="Ej: 1,2,3,-2,5">
         <input id="array1Input" class="input-dinamico" placeholder="Vector 1">
