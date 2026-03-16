@@ -27,6 +27,8 @@ const boton = document.getElementById("botonEjecutar");
 const subarrayInput = document.getElementById("subarrayInput");
 const array1Input = document.getElementById("array1Input");
 const array2Input = document.getElementById("array2Input");
+const resultado = document.getElementById("resultado");
+
 
 selectEjercicio.addEventListener("change", () => {
     const ejercicio = selectEjercicio.value;
@@ -36,20 +38,20 @@ selectEjercicio.addEventListener("change", () => {
     array1Input.style.display = "none";
     array2Input.style.display = "none";
 
-    
+
     subarrayInput.value = "";
     array1Input.value = "";
     array2Input.value = "";
+    resultado.innerHTML = "";
 
     
     if (ejercicio === "26") {
-        subarrayInput.style.display = "inline-block"; 
+        subarrayInput.style.display = "inline-block";
     } else if (ejercicio === "27") {
-        array1Input.style.display = "inline-block";   
-        array2Input.style.display = "inline-block";   
-    }
+        array1Input.style.display = "inline-block";
+        array2Input.style.display = "inline-block";
 
-    
+    }
 });
 
 boton.addEventListener("click", ejecutarEjercicio);
