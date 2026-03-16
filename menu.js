@@ -14,6 +14,12 @@ import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js";
 import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js";
 import { mostrarPares } from "./integrantes/liseth/ejercicio3.js";
 import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js";
+//Martinez
+import { procesarMatriz } from "./integrantes/martinez/ejercicio21.js";
+import { calcularProductoPunto } from "./integrantes/martinez/ejercicio22.js";
+import { procesarConvolucion } from "./integrantes/martinez/ejercicio23.js";
+import { ejecutarBusquedaBinaria } from "./integrantes/martinez/ejercicio24.js";
+import { rotarVector } from "./integrantes/martinez/ejercicio25.js";
 
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
@@ -107,11 +113,11 @@ function ejecutarEjercicio(){
         break;
         
         case "21":
-            transposeMatrix(matrix);
+            procesarMatriz();
         break;
         
         case "22":
-            dotProduct(vectorA, vectorB);
+            calcularProductoPunto();
         break;
         
         case "23":
