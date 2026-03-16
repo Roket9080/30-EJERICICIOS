@@ -1,5 +1,5 @@
 //Miguel
-import { encontrarSubarrayMaximo,procesarEncontrarSubarrayMaximo } from "./integrantes/miguel/ejercicio26.js";
+import { procesarEncontrarSubarrayMaximo } from "./integrantes/miguel/ejercicio26.js";
 import { combinarVectores } from "./integrantes/miguel/ejercicio27.js";
 import { encontrarPrimos } from "./integrantes/miguel/ejercicio28.js";
 import { multiplicarMatrices } from "./integrantes/miguel/ejercicio29.js";
@@ -133,7 +133,6 @@ function ejecutarEjercicio(){
         break;
 
         case "26":
-            encontrarSubarrayMaximo();
             procesarEncontrarSubarrayMaximo();
         break;
         
