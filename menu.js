@@ -5,15 +5,15 @@ import { encontrarPrimos } from "./integrantes/miguel/ejercicio28.js";
 import { multiplicarMatrices } from "./integrantes/miguel/ejercicio29.js";
 import { ordenarPorMezcla } from "./integrantes/miguel/ejercicio30.js";
 //Cristian
-import { procesarBusqueda } from "./integrantes/cristian/ejercicio13.js"
-import { reverseArray } from "./integrantes/cristian/ejercicio14.js"
-import { countEvenNumbers } from "./integrantes/cristian/ejercicio15.js"
-import { calculateAverage } from "./integrantes/cristian/ejercicio16.js"
+import { procesarBusqueda } from "./integrantes/cristian/ejercicio13.js";
+import { reverseArray } from "./integrantes/cristian/ejercicio14.js";
+import { countEvenNumbers } from "./integrantes/cristian/ejercicio15.js";
+import { calculateAverage } from "./integrantes/cristian/ejercicio16.js";
 //Liseth
-import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js"
-import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js"
-import { mostrarPares } from "./integrantes/liseth/ejercicio3.js"
-import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js"
+import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js";
+import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js";
+import { mostrarPares } from "./integrantes/liseth/ejercicio3.js";
+import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js";
 
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
