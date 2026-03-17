@@ -9,11 +9,22 @@ import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js";
 import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js";
 import { mostrarPares } from "./integrantes/liseth/ejercicio3.js";
 import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js";
+//Cristian
+import { procesarBusqueda } from "./integrantes/cristian/ejercicio13.js";
+import { reverseArray } from "./integrantes/cristian/ejercicio14.js";
+import { countEvenNumbers } from "./integrantes/cristian/ejercicio15.js";
+import { calculateAverage } from "./integrantes/cristian/ejercicio16.js";
 
 console.log("mostrarnumeros:", mostrarnumeros);
 console.log("sumarNumeros:", sumarNumeros);
 console.log("mostrarPares:", mostrarPares);
 console.log("tablaMultiplicar:", tablaMultiplicar);
+
+console.log("procesarBusqueda:", procesarBusqueda);
+console.log("reverseArray:", reverseArray);
+console.log("countEvenNumbers:", countEvenNumbers);
+console.log("calculateAverage:", calculateAverage);
+
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
 
@@ -25,6 +36,9 @@ const primosInput = document.getElementById("primosInput");
 const matriz1Input = document.getElementById("matriz1Input");
 const matriz2Input = document.getElementById("matriz2Input");
 
+const dataInput = document.getElementById("dataInput");
+const searchInput = document.getElementById("searchInput");
+const arrayInput = document.getElementById("arrayInput");
 const resultado = document.getElementById("resultado");
 
 // Función para ocultar todos los inputs
@@ -40,20 +54,23 @@ function ocultarTodosInputs() {
 // Evento para mostrar inputs según ejercicio seleccionado
 selectEjercicio.addEventListener("change", () => {
     ocultarTodosInputs();
-    resultado.innerHTML = "";
-
     const ejercicio = selectEjercicio.value;
 
     if (ejercicio === "26") {
-        if(subarrayInput) subarrayInput.style.display = "inline-block";
+        subarrayInput.style.display = "inline-block";
     } else if (ejercicio === "27") {
-        if(array1Input) array1Input.style.display = "inline-block";
-        if(array2Input) array2Input.style.display = "inline-block";
+        array1Input.style.display = "inline-block";
+        array2Input.style.display = "inline-block";
     } else if (ejercicio === "28") {
-        if(primosInput) primosInput.style.display = "inline-block";
+        primosInput.style.display = "inline-block";
     } else if (ejercicio === "29") {
-        if(matriz1Input) matriz1Input.style.display = "inline-block";
-        if(matriz2Input) matriz2Input.style.display = "inline-block";
+        matriz1Input.style.display = "inline-block";
+        matriz2Input.style.display = "inline-block";
+    } else if (ejercicio === "13") {
+        dataInput.style.display = "inline-block";
+        searchInput.style.display = "inline-block";
+    } else if (["14", "15", "16"].includes(ejercicio)) {
+        arrayInput.style.display = "inline-block";
     }
 });
 
@@ -114,21 +131,36 @@ function ejecutarEjercicio() {
             mostrarMaximo();
         break;
         
-        case "13":
-            procesarBusqueda();
-        break;
+         case "13":
+    if (!dataInput.value || !searchInput.value) {
+        resultado.innerHTML = "Ingresa vector y número a buscar.";
+        return;
+    }
+    procesarBusqueda();
+    break;
         
-        case "14":
-            reverseArray();
-        break;    
-
-        case "15":
-            countEvenNumbers();
-        break;
+       case "14":
+    if (!arrayInput.value) {
+        resultado.innerHTML = "Ingresa un vector.";
+        return;
+    }
+    reverseArray(arrayInput.value.split(",").map(Number));
+    break;
+         case "15":
+            if (!arrayInput.value) {
+                resultado.innerHTML = "Ingresa un vector.";
+                return;
+            }
+            countEvenNumbers(arrayInput.value.split(",").map(Number));
+            break;
         
         case "16":
-            calculateAverage();
-        break;
+            if (!arrayInput.value) {
+                resultado.innerHTML = "Ingresa un vector.";
+                return;
+            }
+            calculateAverage(arrayInput.value.split(",").map(Number));
+            break;
         
         case "17":
             removeDuplicates(array);

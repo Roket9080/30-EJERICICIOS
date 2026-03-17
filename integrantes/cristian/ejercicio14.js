@@ -1,5 +1,6 @@
-export function reverseArray() {
+export function reverseArray(array)  {
     const input = document.getElementById("arrayInput14").value;
+    const reversed = array.reverse();
 
     if (!input) {
         document.getElementById("resultado").innerHTML = "Ingresa números válidos.";
@@ -14,6 +15,6 @@ export function reverseArray() {
         invertido.push(array[i]);
     }
 
-    document.getElementById("resultado").innerHTML =
+   document.getElementById("resultado").innerHTML = reversed.join(", ");
         `Vector invertido: [ ${invertido.join(", ")} ]`;
 }
