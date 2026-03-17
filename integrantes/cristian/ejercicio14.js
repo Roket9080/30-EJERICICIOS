@@ -1,20 +1,18 @@
-export function reverseArray(array)  {
-    const input = document.getElementById("arrayInput14").value;
-    const reversed = array.reverse();
-
-    if (!input) {
+export function reverseArray(array) {
+    if (!array || array.length === 0) {
         document.getElementById("resultado").innerHTML = "Ingresa números válidos.";
         return;
     }
 
-    const array = input.split(",").map(num => num.trim());
-
+    // Invertir el array
     const invertido = [];
-
     for (let i = array.length - 1; i >= 0; i--) {
         invertido.push(array[i]);
     }
 
-   document.getElementById("resultado").innerHTML = reversed.join(", ");
-        `Vector invertido: [ ${invertido.join(", ")} ]`;
+    // Mostrar resultado
+    document.getElementById("resultado").innerHTML = "Vector invertido: " + invertido.join(", ");
+    
+    // También puedes retornar el array invertido si quieres usarlo en JS
+    return invertido;
 }
