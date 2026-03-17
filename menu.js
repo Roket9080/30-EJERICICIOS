@@ -1,3 +1,5 @@
+console.log("menu.js cargado correctamente");
+
 //Miguel
 import { encontrarSubarrayMaximo } from "./integrantes/miguel/ejercicio26.js";
 import { combinarVectores } from "./integrantes/miguel/ejercicio27.js";
@@ -168,17 +170,17 @@ function ejecutarEjercicio(){
         break;
 
         case "26":
-        if (!subarrayInput.value) {
-        resultado.innerHTML = "Ingresa los números separados por comas.";
-        return;
-        }
-        encontrarSubarrayMaximo();
-        break;
+            if (!subarrayInput.value) {
+                resultado.innerHTML = "Ingresa los números separados por comas.";
+                return;
+            }
+            encontrarSubarrayMaximo();
+            break;
 
         case "27":
             if (!array1Input.value || !array2Input.value) {
                 resultado.innerHTML = "Ingresa ambos vectores.";
-            return;
+                return;
             }
             combinarVectores();
             break;
