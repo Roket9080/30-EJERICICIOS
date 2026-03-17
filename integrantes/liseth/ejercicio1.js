@@ -1,6 +1,9 @@
 export function mostrarnumeros() {
-            for (let i = 1; i <= 10; i++) {
-                console.log(i);
-                alert(i);
-            }
-        }
+    let texto = "";
+    for (let i = 1; i <= 10; i++) {
+        texto += i + "<br>"; // Genera HTML para mostrar
+    }
+
+    // Escribe el resultado en el div con id "resultado"
+    document.getElementById("resultado").innerHTML = texto;
+}

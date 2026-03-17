@@ -4,7 +4,16 @@ import { combinarVectores } from "./integrantes/miguel/ejercicio27.js";
 import { encontrarPrimos } from "./integrantes/miguel/ejercicio28.js";
 import { multiplicarMatrices } from "./integrantes/miguel/ejercicio29.js";
 import { ordenarPorMezcla } from "./integrantes/miguel/ejercicio30.js";
+//Liseth
+import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js";
+import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js";
+import { mostrarPares } from "./integrantes/liseth/ejercicio3.js";
+import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js";
 
+console.log("mostrarnumeros:", mostrarnumeros);
+console.log("sumarNumeros:", sumarNumeros);
+console.log("mostrarPares:", mostrarPares);
+console.log("tablaMultiplicar:", tablaMultiplicar);
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
 
