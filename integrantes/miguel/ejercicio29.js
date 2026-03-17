@@ -1,19 +1,26 @@
-export function multiplicarMatrices() {
-    const mat1 = parseMatrix(document.getElementById("matrix1Input").value);
-    const mat2 = parseMatrix(document.getElementById("matrix2Input").value);
+export function multiplicarMatrices(m1, m2) {
+    const filasA = m1.length;
+    const colsA = m1[0].length;
+    const filasB = m2.length;
+    const colsB = m2[0].length;
 
-    if (!mat1 || !mat2) {
-        mostrarError("Error: ingresa matrices válidas.");
-        return;
+    if (colsA !== filasB) {
+        throw new Error("No se pueden multiplicar: columnas de A ≠ filas de B");
     }
 
-    if (mat1[0].length !== mat2.length) {
-        mostrarError("Error: columnas de M1 deben coincidir con filas de M2.");
-        return;
+    const resultado = [];
+    for (let i = 0; i < filasA; i++) {
+        resultado[i] = [];
+        for (let j = 0; j < colsB; j++) {
+            let suma = 0;
+            for (let k = 0; k < colsA; k++) {
+                suma += m1[i][k] * m2[k][j];
+            }
+            resultado[i][j] = suma;
+        }
     }
 
-    const result = matrixMultiplication(mat1, mat2);
-    mostrarResultado(result);
+    return resultado; // <-- importante: devolver matriz, no tocar DOM
 }
 
 function parseMatrix(text) {

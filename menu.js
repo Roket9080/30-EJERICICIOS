@@ -1,33 +1,9 @@
-console.log("menu.js cargado correctamente");
-
 //Miguel
 import { encontrarSubarrayMaximo } from "./integrantes/miguel/ejercicio26.js";
 import { combinarVectores } from "./integrantes/miguel/ejercicio27.js";
 import { encontrarPrimos } from "./integrantes/miguel/ejercicio28.js";
 import { multiplicarMatrices } from "./integrantes/miguel/ejercicio29.js";
 import { ordenarPorMezcla } from "./integrantes/miguel/ejercicio30.js";
-//Cristian
-import { procesarBusqueda } from "./integrantes/cristian/ejercicio13.js";
-import { reverseArray } from "./integrantes/cristian/ejercicio14.js";
-import { countEvenNumbers } from "./integrantes/cristian/ejercicio15.js";
-import { calculateAverage } from "./integrantes/cristian/ejercicio16.js";
-//Liseth
-import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js";
-import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js";
-import { mostrarPares } from "./integrantes/liseth/ejercicio3.js";
-import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js";
-//Martinez
-import { procesarMatriz } from "./integrantes/martinez/ejercicio21.js";
-import { calcularProductoPunto } from "./integrantes/martinez/ejercicio22.js";
-import { procesarConvolucion } from "./integrantes/martinez/ejercicio23.js";
-import { ejecutarBusquedaBinaria } from "./integrantes/martinez/ejercicio24.js";
-import { rotarVector } from "./integrantes/martinez/ejercicio25.js";
-//Sebastian
-import { calcularFactorial } from "./integrantes/sebastian/ejercicio5.js";
-import { procesarNumero } from "./integrantes/sebastian/ejercicio6.js";
-import { cargarSuma } from "./integrantes/sebastian/ejercicio7.js";
-import { procesarLimite } from "./integrantes/sebastian/ejercicio8.js";
-
 
 const selectEjercicio = document.getElementById("selectEjercicio");
 const boton = document.getElementById("botonEjecutar");
@@ -35,35 +11,47 @@ const boton = document.getElementById("botonEjecutar");
 const subarrayInput = document.getElementById("subarrayInput");
 const array1Input = document.getElementById("array1Input");
 const array2Input = document.getElementById("array2Input");
+
+const primosInput = document.getElementById("primosInput");
+const matriz1Input = document.getElementById("matriz1Input");
+const matriz2Input = document.getElementById("matriz2Input");
+
 const resultado = document.getElementById("resultado");
 
+// Función para ocultar todos los inputs
+function ocultarTodosInputs() {
+    [subarrayInput, array1Input, array2Input, primosInput, matriz1Input, matriz2Input].forEach(input => {
+        if (input) {
+            input.style.display = "none";
+            input.value = "";
+        }
+    });
+}
 
+// Evento para mostrar inputs según ejercicio seleccionado
 selectEjercicio.addEventListener("change", () => {
-    const ejercicio = selectEjercicio.value;
-
-    // Ocultar todos los inputs por defecto
-    subarrayInput.style.display = "none";
-    array1Input.style.display = "none";
-    array2Input.style.display = "none";
-
-    // Limpiar valores
-    subarrayInput.value = "";
-    array1Input.value = "";
-    array2Input.value = "";
+    ocultarTodosInputs();
     resultado.innerHTML = "";
 
-    // Mostrar inputs según ejercicio
+    const ejercicio = selectEjercicio.value;
+
     if (ejercicio === "26") {
-        subarrayInput.style.display = "inline-block";
+        if(subarrayInput) subarrayInput.style.display = "inline-block";
     } else if (ejercicio === "27") {
-        array1Input.style.display = "inline-block";
-        array2Input.style.display = "inline-block";
+        if(array1Input) array1Input.style.display = "inline-block";
+        if(array2Input) array2Input.style.display = "inline-block";
+    } else if (ejercicio === "28") {
+        if(primosInput) primosInput.style.display = "inline-block";
+    } else if (ejercicio === "29") {
+        if(matriz1Input) matriz1Input.style.display = "inline-block";
+        if(matriz2Input) matriz2Input.style.display = "inline-block";
     }
 });
 
+// Ejecutar ejercicio al hacer click
 boton.addEventListener("click", ejecutarEjercicio);
 
-function ejecutarEjercicio(){
+function ejecutarEjercicio() {
 
     const ejercicio = selectEjercicio.value;
 
@@ -186,21 +174,45 @@ function ejecutarEjercicio(){
             break;
         
         case "28":
-            encontrarPrimos();
-        break;
+    if (!primosInput.value) {
+        resultado.innerHTML = "Ingresa un número mayor o igual a 2.";
+        return;
+    }
+    const limite = parseInt(primosInput.value);
+    const primos = encontrarPrimos(limite); // ahora devuelve array
+    resultado.innerHTML = "Números primos: " + primos.join(", "); // ya funciona
+    break;
         
         case "29":
-            multiplicarMatrices();
-        break;
+    if (!matriz1Input.value || !matriz2Input.value) {
+        resultado.innerHTML = "Ingresa ambas matrices.";
+        return;
+    }
+
+    // Parsear matrices
+    function parseMatriz(input) {
+        return input.split(";").map(fila => fila.split(",").map(n => parseInt(n.trim())));
+    }
+
+    const m1 = parseMatriz(matriz1Input.value);
+    const m2 = parseMatriz(matriz2Input.value);
+
+    // Llamar a la función pasando las matrices
+    const producto = multiplicarMatrices(m1, m2);
+
+    // Mostrar resultado
+    resultado.innerHTML = producto.map(fila => fila.join(", ")).join("\n");
+    break;
         
         case "30":
             ordenarPorMezcla();
         break;                
 
         default:
-            document.getElementById("resultado").innerHTML =
-            "Selecciona un ejercicio válido";
-
+            resultado.innerHTML = "Selecciona un ejercicio válido";
     }
 
 }
+
+// Al cargar la página, ocultar todos los inputs
+ocultarTodosInputs();

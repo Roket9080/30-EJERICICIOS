@@ -1,20 +1,23 @@
-export function encontrarPrimos() {
-    const limit = Number(document.getElementById("primeLimitInput").value);
-    let container = document.getElementById("resultadoPrimos");
+export function encontrarPrimos(limite) {
+    if (isNaN(limite) || limite < 2) return [];
 
-    if (!container) {
-        container = document.createElement("div");
-        container.id = "resultadoPrimos";
-        document.getElementById("resultado").appendChild(container);
+    const esPrimo = new Array(limite + 1).fill(true);
+    esPrimo[0] = esPrimo[1] = false;
+
+    for (let i = 2; i * i <= limite; i++) {
+        if (esPrimo[i]) {
+            for (let j = i * i; j <= limite; j += i) {
+                esPrimo[j] = false;
+            }
+        }
     }
 
-    if (isNaN(limit) || limit < 2) {
-        container.innerHTML = "Error: ingresa un número mayor o igual a 2.";
-        return;
+    const resultado = [];
+    for (let k = 2; k <= limite; k++) {
+        if (esPrimo[k]) resultado.push(k);
     }
 
-    const primes = sieveOfEratosthenes(limit);
-    container.innerHTML = "Números primos: " + primes.join(", ");
+    return resultado; // <--- importante: devuelve array
 }
 
 function sieveOfEratosthenes(limit) {
