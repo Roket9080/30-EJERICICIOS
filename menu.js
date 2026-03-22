@@ -4,29 +4,33 @@ import { combinarVectores } from "./integrantes/miguel/ejercicio27.js";
 import { encontrarPrimos } from "./integrantes/miguel/ejercicio28.js";
 import { multiplicarMatrices } from "./integrantes/miguel/ejercicio29.js";
 import { ordenarPorMezcla } from "./integrantes/miguel/ejercicio30.js";
+
 // Liseth
 import { mostrarnumeros } from "./integrantes/liseth/ejercicio1.js";
 import { sumarNumeros } from "./integrantes/liseth/ejercicio2.js";
 import { mostrarPares } from "./integrantes/liseth/ejercicio3.js";
 import { tablaMultiplicar } from "./integrantes/liseth/ejercicio4.js";
+
 // Cristian
 import { procesarBusqueda } from "./integrantes/cristian/ejercicio13.js";
 import { reverseArray } from "./integrantes/cristian/ejercicio14.js";
 import { countEvenNumbers } from "./integrantes/cristian/ejercicio15.js";
 import { calculateAverage } from "./integrantes/cristian/ejercicio16.js";
-//Sebastian
+
+// Sebastian
 import { calcularFactorial } from "./integrantes/sebastian/ejercicio5.js";
 import { procesarNumero } from "./integrantes/sebastian/ejercicio6.js";
 import { cargarSuma } from "./integrantes/sebastian/ejercicio7.js";
 import { procesarLimite } from "./integrantes/sebastian/ejercicio8.js";
-//Santiago
+
+// Santiago
 import { mostrarPotencia } from "./integrantes/santiago/ejercicio9.js";
 import { procesarTerminos } from "./integrantes/santiago/ejercicio10.js";
 import { procesarVector } from "./integrantes/santiago/ejercicio11.js";
 import { mostrarMaximo } from "./integrantes/santiago/ejercicio12.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Elementos del DOM
+
     const selectEjercicio = document.getElementById("selectEjercicio");
     const boton = document.getElementById("botonEjecutar");
 
@@ -44,218 +48,173 @@ document.addEventListener("DOMContentLoaded", () => {
     const numberInput = document.getElementById("numberInput");
     const inicioInput = document.getElementById("inicioInput");
     const finInput = document.getElementById("finInput");
+
+    // ⚠️ Estos deben existir en tu HTML
+    const baseInput = document.getElementById("baseInput");
+    const exponenteInput = document.getElementById("exponenteInput");
+    const terminosInput = document.getElementById("terminosInput");
+    const vectorInput = document.getElementById("vectorInput");
+
     const resultado = document.getElementById("resultado");
 
-    
+    function ocultarTodosInputs() {
+        [
+            subarrayInput, array1Input, array2Input, primosInput,
+            matriz1Input, matriz2Input, dataInput, searchInput,
+            arrayInput, numberInput, inicioInput, finInput,
+            arrayInput12, baseInput, exponenteInput,
+            terminosInput, vectorInput
+        ].forEach(input => {
+            if (input) {
+                input.style.display = "none";
+                input.value = "";
+            }
+        });
+    }
 
-    // Ocultar todos los inputs
-function ocultarTodosInputs() {
-    [subarrayInput, array1Input, array2Input, primosInput,
-        matriz1Input, matriz2Input, dataInput, searchInput,
-    arrayInput, numberInput, inicioInput, finInput
-]
-    .forEach(input => {
-        if (input) {
-            input.style.display = "none";
-            input.value = "";
-        }
-    });
-}
-
-    // Mostrar inputs según ejercicio seleccionado
     selectEjercicio.addEventListener("change", () => {
         ocultarTodosInputs();
         const ejercicio = selectEjercicio.value;
 
-if (ejercicio === "13") {
+        if (ejercicio === "13") {
             if (dataInput) dataInput.style.display = "inline-block";
             if (searchInput) searchInput.style.display = "inline-block";
+
         } else if (["14", "15", "16"].includes(ejercicio)) {
-            if (arrayInput1416) arrayInput1416.style.display = "inline-block";
+            if (arrayInput) arrayInput.style.display = "inline-block";
+
         } else if (["5", "6", "8"].includes(ejercicio)) {
             if (numberInput) numberInput.style.display = "inline-block";
+
         } else if (ejercicio === "9") {
             if (baseInput) baseInput.style.display = "inline-block";
             if (exponenteInput) exponenteInput.style.display = "inline-block";
+
         } else if (ejercicio === "10") {
             if (terminosInput) terminosInput.style.display = "inline-block";
+
         } else if (ejercicio === "11") {
             if (vectorInput) vectorInput.style.display = "inline-block";
-        } if (ejercicio === "12") {
-        arrayInput12.style.display = "inline-block";
+
+        } else if (ejercicio === "12") {
+            if (arrayInput12) arrayInput12.style.display = "inline-block";
+
         } else if (ejercicio === "7") {
             if (inicioInput) inicioInput.style.display = "inline-block";
             if (finInput) finInput.style.display = "inline-block";
+
         } else if (ejercicio === "26") {
             if (subarrayInput) subarrayInput.style.display = "inline-block";
+
         } else if (ejercicio === "27") {
             if (array1Input) array1Input.style.display = "inline-block";
             if (array2Input) array2Input.style.display = "inline-block";
+
         } else if (ejercicio === "28") {
             if (primosInput) primosInput.style.display = "inline-block";
+
         } else if (ejercicio === "29") {
             if (matriz1Input) matriz1Input.style.display = "inline-block";
             if (matriz2Input) matriz2Input.style.display = "inline-block";
         }
     });
-    // Función principal para ejecutar ejercicios
+
     function ejecutarEjercicio() {
         const ejercicio = selectEjercicio.value;
 
         switch(ejercicio) {
+
             case "1": mostrarnumeros(); break;
             case "2": sumarNumeros(); break;
             case "3": mostrarPares(); break;
             case "4": tablaMultiplicar(); break;
 
-        case "5":
-    if (!numberInput || !numberInput.value) {
-        resultado.innerHTML = "Ingresa un número.";
-        return;
-    }
+            case "5":
+                if (!numberInput.value) return resultado.innerHTML = "Ingresa un número.";
+                const num = parseInt(numberInput.value);
+                if (num > 20) return resultado.innerHTML = "Número muy grande.";
+                resultado.innerHTML = "Factorial: " + calcularFactorial(num);
+                break;
 
-    const num = parseInt(numberInput.value);
+            case "6":
+                if (!numberInput.value) return resultado.innerHTML = "Ingresa un número.";
+                resultado.innerHTML = procesarNumero(parseInt(numberInput.value));
+                break;
 
-    if (num > 20) {
-        resultado.innerHTML = "Número muy grande.";
-        return;
-    }
-
-    resultado.innerHTML = "Factorial: " + calcularFactorial(num);
-    break;
-
-        case "6":
-    if (!numberInput || !numberInput.value) {
-        resultado.innerHTML = "Ingresa un número.";
-        return;
-    }
-
-    const num6 = parseInt(numberInput.value);
-    const res6 = procesarNumero(num6);
-    resultado.innerHTML = res6;
-    break;
-
-        case "7":
-    if (!inicioInput || !finInput || !inicioInput.value || !finInput.value) {
-        resultado.innerHTML = "Ingresa ambos números.";
-        return;
-    }
-
-    const inicio = parseInt(inicioInput.value);
-    const fin = parseInt(finInput.value);
-
-    resultado.innerHTML = "Suma de pares: " + cargarSuma(inicio, fin);
-    break;
+            case "7":
+                if (!inicioInput.value || !finInput.value) return resultado.innerHTML = "Ingresa ambos números.";
+                resultado.innerHTML = "Suma de pares: " + cargarSuma(parseInt(inicioInput.value), parseInt(finInput.value));
+                break;
 
             case "8":
-    if (!numberInput || !numberInput.value) {
-        resultado.innerHTML = "Ingresa un número.";
-        return;
-    }
-
-    const num8 = parseInt(numberInput.value);
-    resultado.innerHTML = procesarLimite(num8);
-    break;
+                if (!numberInput.value) return resultado.innerHTML = "Ingresa un número.";
+                resultado.innerHTML = procesarLimite(parseInt(numberInput.value));
+                break;
 
             case "9": mostrarPotencia(); break;
             case "10": procesarTerminos(); break;
             case "11": procesarVector(); break;
-            case "12":
-    if (!arrayInput12.value) {
-        resultado.textContent = "Ingresa un vector válido.";
-        return;
-    }
-    mostrarMaximo();
-    break;
 
-            // --- EJERCICIO 13 ---
+            case "12":
+                if (!arrayInput12.value) return resultado.innerHTML = "Ingresa un vector válido.";
+                mostrarMaximo();
+                break;
+
             case "13":
-                if (!dataInput || !searchInput || !dataInput.value || !searchInput.value) {
-                    resultado.innerHTML = "Ingresa vector y número a buscar.";
-                    return;
-                }
+                if (!dataInput.value || !searchInput.value) return resultado.innerHTML = "Ingresa datos.";
                 procesarBusqueda(dataInput.value, parseInt(searchInput.value));
                 break;
 
-            // --- EJERCICIO 14 ---
             case "14":
-                if (!arrayInput || !arrayInput.value) {
-                    resultado.innerHTML = "Ingresa un vector.";
-                    return;
-                }
-                const vec14 = arrayInput.value.split(",").map(Number);
-                const vecInvertido = reverseArray(vec14);
-                resultado.innerHTML = "Vector invertido: " + vecInvertido.join(", ");
+                if (!arrayInput.value) return resultado.innerHTML = "Ingresa un vector.";
+                resultado.innerHTML = reverseArray(arrayInput.value.split(",").map(Number)).join(", ");
                 break;
 
-            // --- EJERCICIO 15 ---
             case "15":
-                if (!arrayInput || !arrayInput.value) {
-                    resultado.innerHTML = "Ingresa un vector.";
-                    return;
-                }
-                const vec15 = arrayInput.value.split(",").map(Number);
-                const pares = countEvenNumbers(vec15);
-                resultado.innerHTML = "Cantidad de pares: " + pares;
+                if (!arrayInput.value) return resultado.innerHTML = "Ingresa un vector.";
+                resultado.innerHTML = countEvenNumbers(arrayInput.value.split(",").map(Number));
                 break;
 
-            // --- EJERCICIO 16 ---
             case "16":
-                if (!arrayInput || !arrayInput.value) {
-                    resultado.innerHTML = "Ingresa un vector.";
-                    return;
-                }
-                const vec16 = arrayInput.value.split(",").map(Number);
-                const promedio = calculateAverage(vec16);
-                resultado.innerHTML = "Promedio: " + promedio;
+                if (!arrayInput.value) return resultado.innerHTML = "Ingresa un vector.";
+                resultado.innerHTML = calculateAverage(arrayInput.value.split(",").map(Number));
                 break;
 
-            // --- OTROS CASES ---
-            case "17": removeDuplicates(array); break;
-            case "18": bubbleSort(array); break;
-            case "19": multiply(a, b); break;
-            case "20": countVowels(letters); break;
-            case "21": procesarMatriz(); break;
-            case "22": calcularProductoPunto(); break;
-            case "23": procesarConvolucion(); break;
-            case "24": ejecutarBusquedaBinaria(); break;
-            case "25": rotarVector(); break;
             case "26":
-                if (!subarrayInput.value) {
-                    resultado.innerHTML = "Ingresa los números separados por comas.";
-                    return;
-                }
-                encontrarSubarrayMaximo();
-                break;
+    if (!subarrayInput.value) {
+        resultado.innerHTML = "Ingresa los números separados por comas.";
+        return;
+    }
+    resultado.innerHTML = encontrarSubarrayMaximo(subarrayInput.value);
+    break;
+
             case "27":
                 if (!array1Input.value || !array2Input.value) {
-                    resultado.innerHTML = "Ingresa ambos vectores.";
-                    return;
-                }
-                combinarVectores();
-                break;
+                resultado.innerHTML = "Ingresa ambos vectores.";
+                return;
+    }
+    resultado.innerHTML = combinarVectores(array1Input.value, array2Input.value);
+    break;
+
             case "28":
-                if (!primosInput.value) {
-                    resultado.innerHTML = "Ingresa un número mayor o igual a 2.";
-                    return;
-                }
-                const limite = parseInt(primosInput.value);
-                const primos = encontrarPrimos(limite);
-                resultado.innerHTML = "Números primos: " + primos.join(", ");
+                if (!primosInput.value) return resultado.innerHTML = "Ingresa un número.";
+                resultado.innerHTML = encontrarPrimos(parseInt(primosInput.value)).join(", ");
                 break;
+
             case "29":
-                if (!matriz1Input.value || !matriz2Input.value) {
-                    resultado.innerHTML = "Ingresa ambas matrices.";
-                    return;
-                }
-                function parseMatriz(input) {
-                    return input.split(";").map(fila => fila.split(",").map(n => parseInt(n.trim())));
-                }
-                const m1 = parseMatriz(matriz1Input.value);
-                const m2 = parseMatriz(matriz2Input.value);
-                const producto = multiplicarMatrices(m1, m2);
-                resultado.innerHTML = producto.map(fila => fila.join(", ")).join("\n");
+                if (!matriz1Input.value || !matriz2Input.value) return resultado.innerHTML = "Ingresa matrices.";
+
+                const parseMatriz = (input) =>
+                    input.split(";").map(fila => fila.split(",").map(n => parseInt(n.trim())));
+
+                const producto = multiplicarMatrices(
+                    parseMatriz(matriz1Input.value),
+                    parseMatriz(matriz2Input.value)
+                );
+
+                resultado.innerHTML = producto.map(f => f.join(", ")).join("<br>");
                 break;
+
             case "30": ordenarPorMezcla(); break;
 
             default:
@@ -263,9 +222,7 @@ if (ejercicio === "13") {
         }
     }
 
-    // Listener del botón
     if (boton) boton.addEventListener("click", ejecutarEjercicio);
 
-    // Ocultar inputs al cargar la página
     ocultarTodosInputs();
 });
