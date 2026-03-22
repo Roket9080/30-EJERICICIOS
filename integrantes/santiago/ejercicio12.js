@@ -1,22 +1,13 @@
 export function mostrarMaximo() {
-    let texto = document.getElementById("arrayInput").value;
+    const texto = document.getElementById("arrayInput12").value; // lee el input correcto
+    if (!texto) {
+        document.getElementById("resultado").textContent = "Ingresa un vector válido";
+        return;
+    }
 
-    let array = texto.split(",").map(Number); 
-
-    let maximo = findMaxValue(array);
+    const array = texto.split(",").map(Number); 
+    const maximo = Math.max(...array);
 
     document.getElementById("resultado").textContent =
         "El valor máximo es: " + maximo;
-}
-
-function findMaxValue(array) {
-    let max = array[0];
-
-    for (let i = 1; i < array.length; i++) {
-        if (array[i] > max) {
-            max = array[i];
-        }
-    }
-
-    return max;
 }

@@ -19,3 +19,8 @@ import { calcularFactorial } from "./integrantes/sebastian/ejercicio5.js";
 import { procesarNumero } from "./integrantes/sebastian/ejercicio6.js";
 import { cargarSuma } from "./integrantes/sebastian/ejercicio7.js";
 import { procesarLimite } from "./integrantes/sebastian/ejercicio8.js";
+//Santiago
+import { mostrarPotencia } from "./integrantes/santiago/ejercicio9.js";
+import { procesarTerminos } from "./integrantes/santiago/ejercicio10.js";
+import { procesarVector } from "./integrantes/santiago/ejercicio11.js";
+import { mostrarMaximo } from "./integrantes/santiago/ejercicio12.js";

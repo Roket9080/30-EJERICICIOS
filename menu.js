@@ -19,6 +19,11 @@ import { calcularFactorial } from "./integrantes/sebastian/ejercicio5.js";
 import { procesarNumero } from "./integrantes/sebastian/ejercicio6.js";
 import { cargarSuma } from "./integrantes/sebastian/ejercicio7.js";
 import { procesarLimite } from "./integrantes/sebastian/ejercicio8.js";
+//Santiago
+import { mostrarPotencia } from "./integrantes/santiago/ejercicio9.js";
+import { procesarTerminos } from "./integrantes/santiago/ejercicio10.js";
+import { procesarVector } from "./integrantes/santiago/ejercicio11.js";
+import { mostrarMaximo } from "./integrantes/santiago/ejercicio12.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Elementos del DOM
@@ -31,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const primosInput = document.getElementById("primosInput");
     const matriz1Input = document.getElementById("matriz1Input");
     const matriz2Input = document.getElementById("matriz2Input");
+    const arrayInput12 = document.getElementById("arrayInput12");
 
     const dataInput = document.getElementById("dataInput");
     const searchInput = document.getElementById("searchInput");
@@ -62,34 +68,36 @@ function ocultarTodosInputs() {
         const ejercicio = selectEjercicio.value;
 
 if (ejercicio === "13") {
-    if (dataInput) dataInput.style.display = "inline-block";
-    if (searchInput) searchInput.style.display = "inline-block";
-
-} else if (["14", "15", "16"].includes(ejercicio)) {
-    if (arrayInput) arrayInput.style.display = "inline-block";
-
-} else if (["5", "6", "8"].includes(ejercicio)) {
-    if (numberInput) numberInput.style.display = "inline-block";
-
-} else if (ejercicio === "7") {
-    if (inicioInput) inicioInput.style.display = "inline-block";
-    if (finInput) finInput.style.display = "inline-block";
-
-} else if (ejercicio === "26") {
-    subarrayInput.style.display = "inline-block";
-
-} else if (ejercicio === "27") {
-    array1Input.style.display = "inline-block";
-    array2Input.style.display = "inline-block";
-
-} else if (ejercicio === "28") {
-    primosInput.style.display = "inline-block";
-
-} else if (ejercicio === "29") {
-    matriz1Input.style.display = "inline-block";
-    matriz2Input.style.display = "inline-block";
-}
-});
+            if (dataInput) dataInput.style.display = "inline-block";
+            if (searchInput) searchInput.style.display = "inline-block";
+        } else if (["14", "15", "16"].includes(ejercicio)) {
+            if (arrayInput1416) arrayInput1416.style.display = "inline-block";
+        } else if (["5", "6", "8"].includes(ejercicio)) {
+            if (numberInput) numberInput.style.display = "inline-block";
+        } else if (ejercicio === "9") {
+            if (baseInput) baseInput.style.display = "inline-block";
+            if (exponenteInput) exponenteInput.style.display = "inline-block";
+        } else if (ejercicio === "10") {
+            if (terminosInput) terminosInput.style.display = "inline-block";
+        } else if (ejercicio === "11") {
+            if (vectorInput) vectorInput.style.display = "inline-block";
+        } if (ejercicio === "12") {
+        arrayInput12.style.display = "inline-block";
+        } else if (ejercicio === "7") {
+            if (inicioInput) inicioInput.style.display = "inline-block";
+            if (finInput) finInput.style.display = "inline-block";
+        } else if (ejercicio === "26") {
+            if (subarrayInput) subarrayInput.style.display = "inline-block";
+        } else if (ejercicio === "27") {
+            if (array1Input) array1Input.style.display = "inline-block";
+            if (array2Input) array2Input.style.display = "inline-block";
+        } else if (ejercicio === "28") {
+            if (primosInput) primosInput.style.display = "inline-block";
+        } else if (ejercicio === "29") {
+            if (matriz1Input) matriz1Input.style.display = "inline-block";
+            if (matriz2Input) matriz2Input.style.display = "inline-block";
+        }
+    });
     // Función principal para ejecutar ejercicios
     function ejecutarEjercicio() {
         const ejercicio = selectEjercicio.value;
@@ -152,7 +160,13 @@ if (ejercicio === "13") {
             case "9": mostrarPotencia(); break;
             case "10": procesarTerminos(); break;
             case "11": procesarVector(); break;
-            case "12": mostrarMaximo(); break;
+            case "12":
+    if (!arrayInput12.value) {
+        resultado.textContent = "Ingresa un vector válido.";
+        return;
+    }
+    mostrarMaximo();
+    break;
 
             // --- EJERCICIO 13 ---
             case "13":
