@@ -1,11 +1,11 @@
-export function calcularFactorial() {
-    let numero = 5;  
-    let factorial = 1;
+export function calcularFactorial(n) {
+    if (n < 0) return null;
 
-    for (let i = 1; i <= numero; i++) {
-        factorial *= i;
+    let resultado = 1;
+
+    for (let i = 1; i <= n; i++) {
+        resultado *= i;
     }
 
-    console.log("El factorial de " + numero + " es: " + factorial);
-    alert("El factorial de " + numero + " es: " + factorial);
+    return resultado;
 }

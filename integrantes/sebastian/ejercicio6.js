@@ -1,9 +1,4 @@
-export function procesarNumero() {
-    let numero = parseInt(document.getElementById('numeroInput').value);
-    countdown(numero);
-}
-
-function countdown(number) {
+export function procesarNumero(number) {
     let i = 1;
     let resultado = "";
 
@@ -12,5 +7,5 @@ function countdown(number) {
         i++;
     }
 
-    document.getElementById("resultado").innerHTML = resultado;
+    return resultado;
 }
