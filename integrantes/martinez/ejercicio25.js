@@ -1,33 +1,7 @@
-export function rotarVector() {
-    const inputArray = document.getElementById("rotateInput");
-    const inputK = document.getElementById("positionsInput");
-
-    // Crear contenedor si no existe
-    let contenedor = document.getElementById("resultadoRotacion");
-    if (!contenedor) {
-        contenedor = document.createElement("div");
-        contenedor.id = "resultadoRotacion";
-        document.getElementById("resultado").appendChild(contenedor);
-    }
-
-    // Convertir input a array de números
-    const arr = inputArray.value.split(",").map(n => Number(n.trim()));
-    const k = Number(inputK.value);
-
-    // Validación
-    if (arr.some(isNaN) || isNaN(k)) {
-        contenedor.innerText = "Error: ingresa números válidos.";
-        return;
-    }
-
-    // Normalizar k
-    const n = arr.length;
-    const rotaciones = k % n;
-
-    // Rotar array
-    const resultado = arr.slice(-rotaciones).concat(arr.slice(0, n - rotaciones));
-
-    // Mostrar resultado
-    contenedor.innerText = "Vector rotado: [" + resultado.join(", ") + "]";
+// ejercicio25.js
+export function rotarVector(vector, k = 1) {
+    // vector: array de números, k: posiciones a rotar
+    const n = vector.length;
+    k = k % n; // para que no se pase
+    return vector.slice(-k).concat(vector.slice(0, n - k));
 }
-

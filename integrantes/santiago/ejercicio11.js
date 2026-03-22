@@ -1,20 +1,8 @@
-export function procesarVector() {
-    let texto = document.getElementById("vectorInput").value;
+// integrantes/santiago/ejercicio11.js
+export function procesarVector(vectorStr) {
+    if(!vectorStr) return "Vector vacío";
 
-    let array = texto.split(",").map(Number); // Convierte a array de números
-
-    let suma = sumArrayElements(array);
-
-    document.getElementById("resultado").innerHTML =
-        "La suma de los elementos es: " + suma;
-}
-
-function sumArrayElements(arr) {
-    let suma = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-        suma += arr[i];
-    }
-
+    const array = vectorStr.split(",").map(Number);
+    const suma = array.reduce((a,b) => a+b, 0);
     return suma;
 }

@@ -1,46 +1,16 @@
 export function ejecutarBusquedaBinaria() {
-    const resultado = document.getElementById("resultado"); // tu div existente
+    const vector = document.getElementById("vector24Input").value.split(",").map(Number);
+    const target = parseInt(document.getElementById("target24Input").value);
+    vector.sort((a,b)=>a-b);
 
-    const txtArray = document.getElementById("sortedArrayInput");
-    const txtValue = document.getElementById("searchValueInput");
-
-    if (!txtArray || !txtValue) {
-        resultado.textContent = "Error: selecciona el ejercicio 24 para generar los campos.";
-        return;
+    let left=0, right=vector.length-1;
+    let index=-1;
+    while(left<=right){
+        const mid = Math.floor((left+right)/2);
+        if(vector[mid]===target){ index=mid; break; }
+        else if(vector[mid]<target) left=mid+1;
+        else right=mid-1;
     }
-
-    const arr = txtArray.value
-        .split(",")
-        .map(n => Number(n.trim()))
-        .filter(n => !isNaN(n));
-
-    const value = Number(txtValue.value);
-
-    if (arr.length === 0 || isNaN(value)) {
-        resultado.textContent = "Ingresa datos válidos.";
-        return;
-    }
-
-    let left = 0;
-    let right = arr.length - 1;
-    let index = -1;
-
-    while (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-
-        if (arr[mid] === value) {
-            index = mid;
-            break;
-        }
-
-        if (arr[mid] < value) left = mid + 1;
-        else right = mid - 1;
-    }
-
-    // Mostrar resultado en el mismo párrafo
-    resultado.textContent =
-        index === -1
-            ? `El valor ${value} NO está en el array.`
-            : `El valor ${value} está en la posición: ${index}`;
+    document.getElementById("resultado").innerHTML = 
+        index===-1 ? "No se encontró" : "Encontrado en posición: "+index;
 }
-

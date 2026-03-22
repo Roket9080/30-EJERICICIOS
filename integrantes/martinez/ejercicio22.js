@@ -18,40 +18,13 @@ function ensureOutput(id = "resultado22") {
 }
 
 export function calcularProductoPunto() {
-    const salida = ensureOutput("resultado22");
-
-    const aEl = document.getElementById("vectorAInput");
-    const bEl = document.getElementById("vectorBInput");
-
-    if (!aEl || !bEl) {
-        salida.textContent = "Error: faltan los inputs vectorAInput o vectorBInput.";
+    const vectorA = document.getElementById("vectorAInput").value.split(",").map(Number);
+    const vectorB = document.getElementById("vectorBInput").value.split(",").map(Number);
+    if(vectorA.length !== vectorB.length){
+        document.getElementById("resultado").innerHTML = "Los vectores deben tener la misma longitud";
         return;
     }
-
-    const vecAInput = aEl.value.trim();
-    const vecBInput = bEl.value.trim();
-
-    if (vecAInput === "" || vecBInput === "") {
-        salida.textContent = "Error: Debes ingresar ambos vectores.";
-        return;
-    }
-
-    const vectorA = vecAInput.split(",").map(v => v.trim());
-    const vectorB = vecBInput.split(",").map(v => v.trim());
-
-    if (vectorA.length !== vectorB.length) {
-        salida.textContent = "Error: Los vectores deben tener la misma longitud.";
-        return;
-    }
-
-    for (let i = 0; i < vectorA.length; i++) {
-        if (vectorA[i] === "" || vectorB[i] === "" ||
-            isNaN(Number(vectorA[i])) || isNaN(Number(vectorB[i]))) {
-            salida.textContent = "Error: Ambos vectores deben contener solo números.";
-            return;
-        }
-    }
-
-    const resultado = dotProduct(vectorA, vectorB);
-    salida.textContent = `Producto punto: ${resultado}`;
+    let producto = 0;
+    for(let i=0;i<vectorA.length;i++) producto += vectorA[i]*vectorB[i];
+    document.getElementById("resultado").innerHTML = "Producto punto: " + producto;
 }

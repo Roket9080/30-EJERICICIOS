@@ -20,7 +20,6 @@
 <label for="selectEjercicio">Selecciona un ejercicio:</label>
 <select id="selectEjercicio">
     <option value="">--Selecciona un ejercicio--</option>
-    
     <option value="1">1 - Mostrar números del 1 al 10</option>
     <option value="2">2 - Sumar números del 1 al 100</option>
     <option value="3">3 - Mostrar números pares</option>
@@ -37,16 +36,12 @@
     <option value="14">14 - Invertir vector</option>
     <option value="15">15 - Contar elementos pares en vector</option>
     <option value="16">16 - Promedio de elementos de vector</option>
-    <option value="17">17 - Eliminar duplicados de vector</option>
-    <option value="18">18 - Ordenar vector (burbuja)</option>
-    <option value="19">19 - Producto de elementos</option>
-    <option value="20">20 - Contar vocales en vector de letras</option>
     <option value="21">21 - Matriz transpuesta</option>
     <option value="22">22 - Producto punto de vectores</option>
     <option value="23">23 - Convolución de vectores</option>
     <option value="24">24 - Búsqueda binaria</option>
     <option value="25">25 - Rotar vector k posiciones</option>
-    <option value="26">26 - Subarray maximo</option>
+    <option value="26">26 - Subarray máximo</option>
     <option value="27">27 - Combinar vectores</option>
     <option value="28">28 - Primos</option>
     <option value="29">29 - Multiplicación de matrices</option>
@@ -54,48 +49,44 @@
 </select>
 
 <div id="inputsContainer">
-
-    <!-- Ejercicio 13 -->
+    <!-- Inputs generales para ejercicios 1-20 y 26-30 -->
     <input type="text" id="dataInput" class="input-dinamico" placeholder="Ingresa vector separado por comas">
     <input type="number" id="searchInput" class="input-dinamico" placeholder="Número a buscar">
-
-    <!-- Ejercicios 14,15,16 -->
-    <input type="text" id="arrayInput" class="input-dinamico" placeholder="Ingresa vector separado por comas">
-
-    <!-- Ejercicios 5,6,8 -->
+    <input type="text" id="arrayInput12" class="input-dinamico" placeholder="Ingresa vector separado por comas">
     <input type="number" id="numberInput" class="input-dinamico" placeholder="Ingresa un número">
-
-    <!-- Ejercicio 7 -->
     <input type="number" id="inicioInput" class="input-dinamico" placeholder="Inicio">
     <input type="number" id="finInput" class="input-dinamico" placeholder="Fin">
-
-    <!-- Ejercicio 9 -->
     <input id="baseInput" class="input-dinamico" type="number" placeholder="Base">
     <input id="exponenteInput" class="input-dinamico" type="number" placeholder="Exponente">
-
-    <!-- Ejercicio 10 -->
     <input id="terminosInput" class="input-dinamico" type="number" placeholder="Cantidad de términos">
-
-    <!-- Ejercicio 11 -->
-    <input type="text" id="vectorInput" class="input-dinamico" placeholder="Ingresa vector separado por comas">
-
-    <!-- Ejercicio 12 -->
-    <input type="text" id="arrayInput12" class="input-dinamico" placeholder="Ingresa vector separado por comas">
-
-    <!-- Otros -->
     <input id="subarrayInput" class="input-dinamico" placeholder="Ej: 1,2,3,-2,5">
     <input id="array1Input" class="input-dinamico" placeholder="Vector 1: 1,3,5">
     <input id="array2Input" class="input-dinamico" placeholder="Vector 2: 2,4,6">
     <input id="primosInput" class="input-dinamico" placeholder="Ingresa límite para primos">
-    <input id="matriz1Input" class="input-dinamico" placeholder="Matriz 1: ej 1,2;3,4">
-    <input id="matriz2Input" class="input-dinamico" placeholder="Matriz 2: ej 5,6;7,8">
+    <input type="text" id="matriz29InputA" class="input-dinamico" placeholder="Matriz A, ej: 1,2;3,4">
+    <input type="text" id="matriz29InputB" class="input-dinamico" placeholder="Matriz B, ej: 5,6;7,8">
+    <!-- Inputs dedicados para ejercicios 21-25 -->
+    <!-- Ejercicio 21: matriz -->
+    <input type="text" id="matriz21Input21" class="input-dinamico" placeholder="Fila1;Fila2, ej: 1,2;3,4">
 
+    <!-- Ejercicio 22: producto punto -->
+    <input type="text" id="vectorAInput" class="input-dinamico" placeholder="Vector A, ej: 1,2,3">
+    <input type="text" id="vectorBInput" class="input-dinamico" placeholder="Vector B, ej: 4,5,6">
+
+    <!-- Ejercicio 23: convolución -->
+    <input type="text" id="vectorXInput" class="input-dinamico" placeholder="Vector X, ej: 1,2,3">
+    <input type="text" id="vectorYInput" class="input-dinamico" placeholder="Vector Y, ej: 4,5">
+
+    <!-- Ejercicio 24: búsqueda binaria -->
+    <input type="text" id="vector24Input" class="input-dinamico" placeholder="Vector ej: 1,2,3,4,5">
+    <input type="number" id="target24Input" class="input-dinamico" placeholder="Número a buscar">
+
+    <!-- Ejercicio 25: rotar vector -->
+    <input type="text" id="vector25Input" class="input-dinamico" placeholder="Vector ej: 1,2,3,4">
 </div>
 
 <div id="resultado"></div>
-
 <button id="botonEjecutar">Ejecutar</button>
-
 
 <script type="module" src="menu.js"></script>
 
