@@ -1,5 +1,5 @@
 export function countEvenNumbers() {
-    const input = document.getElementById("numbersInput").value;
+    const input = document.getElementById("arrayInput").value; // <-- cambiar aquí
 
     if (!input) {
         document.getElementById("resultado").innerHTML = "Ingresa números válidos.";
