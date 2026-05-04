@@ -1,5 +1,5 @@
 export function countEvenNumbers() {
-    const input = document.getElementById("arrayInput").value; // <-- cambiar aquí
+    const input = document.getElementById("numbersInput").value;
 
     if (!input) {
         document.getElementById("resultado").innerHTML = "Ingresa números válidos.";
@@ -20,9 +20,10 @@ export function countEvenNumbers() {
     let contador = 0;
 
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] % 2 === 0) contador++;
+        if (numbers[i] % 2 === 0) {
+            contador++;
+        }
     }
 
-    document.getElementById("resultado").innerHTML =
-        `Cantidad de números pares: ${contador}`;
+    return contador;
 }
