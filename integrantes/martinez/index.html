@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Lógica en JS</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .seccion { margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        input { margin-right: 10px; padding: 5px; }
+        button { padding: 5px 10px; cursor: pointer; }
+        #resultado { margin-top: 30px; padding: 15px; background-color: #f9f9f9; border: 2px dashed #666; }
+    </style>
+</head>
+<body>
+
+    <h1>Ejercicios de Lógica</h1>
+
+    <div class="seccion">
+        <h3>Transponer Matriz</h3>
+        <input type="text" id="matrixInput" placeholder="Ej: 1 2; 3 4">
+        <button id="btnMatriz">Procesar Matriz</button>
+    </div>
+
+    <div class="seccion">
+        <h3>Producto Punto</h3>
+        <input type="text" id="vectorAInput" placeholder="Vector A (Ej: 1, 2)">
+        <input type="text" id="vectorBInput" placeholder="Vector B (Ej: 3, 4)">
+        <button id="btnPunto">Calcular Producto Punto</button>
+    </div>
+
+    <div class="seccion">
+        <h3>Convolución</h3>
+        <input type="text" id="vectorXInput" placeholder="Vector X (Ej: 1, 2, 3)">
+        <input type="text" id="vectorYInput" placeholder="Vector Y (Ej: 4, 5)">
+        <button id="btnConv">Procesar Convolución</button>
+    </div>
+
+    <div class="seccion">
+        <h3>Búsqueda Binaria (Ejercicio 24)</h3>
+        <input type="text" id="sortedArrayInput" placeholder="Array ordenado (Ej: 10, 20, 30)">
+        <input type="text" id="searchValueInput" placeholder="Valor a buscar (Ej: 20)">
+        <button id="btnBusqueda">Buscar</button>
+    </div>
+
+    <div class="seccion">
+        <h3>Rotar Vector</h3>
+        <input type="text" id="rotateInput" placeholder="Vector (Ej: 1, 2, 3, 4)">
+        <input type="text" id="positionsInput" placeholder="Rotaciones (Ej: 2)">
+        <button id="btnRotar">Rotar</button>
+    </div>
+
+    <!-- Contenedor principal donde app.js inyectará los resultados -->
+    <h2>Resultados:</h2>
+    <div id="resultado"></div>
+
+    <!-- IMPORTANTE: type="module" permite usar import/export -->
+    <script type="module" src="./src/main.js"></script>
+
+</body>
+</html>
