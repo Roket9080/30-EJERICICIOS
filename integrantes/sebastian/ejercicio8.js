@@ -1,12 +1,4 @@
-export function procesarLimite() {
-    let limite = parseInt(document.getElementById("limiteInput").value);
-
-    let texto = showOddNumbers(limite);
-
-    document.getElementById("resultado").innerHTML = texto;
-}
-
-function showOddNumbers(limit) {
+export function procesarLimite(limit) {
     if (isNaN(limit) || limit < 1) {
         return "Error: Ingresa un número válido mayor que 0.";
     }

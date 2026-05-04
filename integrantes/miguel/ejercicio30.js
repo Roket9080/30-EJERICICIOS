@@ -1,4 +1,3 @@
-
 export function ordenarPorMezcla() {
     const resultadoDiv = document.getElementById("resultado");
 
